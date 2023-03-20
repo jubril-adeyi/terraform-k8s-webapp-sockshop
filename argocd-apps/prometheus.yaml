@@ -1,0 +1,32 @@
+## prometheus config
+
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: prometheus
+  namespace: argo-cd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    namespace: argo-cd
+    server: https://kubernetes.default.svc
+  project: default
+  sources:
+    - repoURL: https://github.com/jubril-adeyi/terraforom-k8s-webapp-sockshop.git
+      targetRevision: HEAD
+      ref: jubril-adeyi
+    - repoURL: https://prometheus-community.github.io/helm-charts/
+      chart: prometheus
+      targetRevision: 19.7.2
+      helm:
+        valueFiles:
+          - $jubril-adeyi/argocd-apps/values/prometheus.yaml
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+  
+  progressDeadlineSeconds: 600
