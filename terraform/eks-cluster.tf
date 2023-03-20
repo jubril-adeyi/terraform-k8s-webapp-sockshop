@@ -1,31 +1,4 @@
 
-// kubenetes provider block to define provider
-
-data "aws_eks_cluster" "my-eks-cluster" {
-  name       = var.cluster-name
-  depends_on = [aws_eks_cluster.eks-cluster]
-}
-
-data "aws_eks_cluster_auth" "my-eks-cluster" {
-  name       = var.cluster-name
-  depends_on = [aws_eks_cluster.eks-cluster]
-}
-
-provider "kubernetes" {
-  host                   = data.aws_eks_cluster.my-eks-cluster.endpoint
-  cluster_ca_certificate = base64decode(data.aws_eks_cluster.my-eks-cluster.certificate_authority.0.data)
-  exec {
-    api_version = var.k8s_api_version
-    command     = "aws"
-    args = [
-      "eks",
-      "get-token",
-      "--cluster-name",
-      var.cluster-name
-    ]
-  }
-}
-
 // creating IAM Role with neccesary policies for creation of cluster
 
 resource "aws_iam_role" "eks-cluster-role" {
