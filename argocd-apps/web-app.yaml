@@ -9,7 +9,7 @@ spec:
   replicas: 2
   selector:
     matchLabels:
-      app: exam
+      app: web-app
   template:
     metadata:
       labels:
@@ -17,15 +17,7 @@ spec:
     spec:
       containers:
       - name: web-app
-        image: 
-
-        resources:
-          limits:
-            cpu: "1"
-            memory: "1Gi"
-          requests:
-            cpu: "0.5"
-            memory: "512Mi"
+        image: slickboy/jb-web:latest
         ports:
         - containerPort: 80
 ---
