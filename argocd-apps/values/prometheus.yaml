@@ -1,5 +1,0 @@
-// prometheus config 
-
-server:
-  service:
-    type: LoadBalancer01
