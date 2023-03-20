@@ -1,0 +1,24 @@
+// sock-shop config
+
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: sock-shop
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    namespace: sock-shop
+    server: https://kubernetes.default.svc
+  project: default
+  sources:
+  - repoURL: https://github.com/jubril-adeyi/terraforom-k8s-webapp-sockshop.git
+    targetRevision: main
+    path: sock-shop-manifests 
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+    - CreateNamespace=true
