@@ -37,7 +37,7 @@ metadata:
 
 spec:
   selector:
-    app: exam
+    app: web-app
   ports:
   - name: http
     port: 80
