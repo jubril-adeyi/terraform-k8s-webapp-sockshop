@@ -6,7 +6,7 @@ metadata:
   name: web-app
   namespace: argo-cd
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: web-app
