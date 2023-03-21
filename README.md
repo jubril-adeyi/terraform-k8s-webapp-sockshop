@@ -1,1 +1,2 @@
-# Deployment of a personal nginx web-app and the sock-shop app with neccesary deppendeencies using kubenrnetes as microservice orchestration tool, and tarraform as IAC tool for the creation of kubernetes (Amazon EKS) Infrastructure.
+# Deployment of a personal nginx web-app and the sock-shop app with neccesary dependencies using kubernetes as microservice orchestration tool, and Terraform as IAC tool for the creation of kubernetes (Amazon EKS) Infrastructure and the required resources. Helm chart was also used in creation of resources.
+# Using ArgoCD for Continous delivery of the Kubernetes resources and Prometheus and Grafana for monitoring and Visualization of Metrics. 
