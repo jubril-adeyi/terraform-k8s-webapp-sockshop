@@ -97,6 +97,28 @@ aws eks --region <aws-region> update-kubeconfig --name <eks-cluster-name>
  * After logging in, commence with the provisioning of the apps using argo cd  
 
 ### Argocd SETUP 
+#### Connect Argocd to git repository 
+* On the argocd page open the repository management menu and select "repositories" 
+* Connect to the git repository using https: copying the link from Github
+* click on 'connect' to add the repository 
+#### Configure the Argocd root app 
+* On the app creation page, click on "new app" 
+* Fill the form with the details : 
+  *  APP NAME : root
+  *  PROJECT : default
+  *  SYNC POLICY : automatic 
+  *  SYNC OPTIONS : auto create namespace 
+  *  CLUSTER : https://kubernetes.default.svc
+  *  REPO URL : <git-repo-url> 
+  *  PATH : <path-containing-app-yaml> 
+  *  REVISION : HEAD
+* Click on "Create" 
+ 
+#### Proceed with deployment of apps using Argocd and Helm Charts 
+* This Git repository contains the manifests for deploying the apps; web-app, grafana and prometheus in /argocd-apps directory. 
+* The manifests file for the sock-shop app is located in the /sock-shop-manifests diorectory 
+* Argocd is configured to fetch these manifests and use helm to provision all the resources defined in these manifests.
+* In ArgoCD, Syncronize with git repository by clicking on "Sync" and the deployment of the app is effected so that it matches the configuration and the state defined in the manifests in the git repository.
 
  
  
