@@ -30,8 +30,10 @@ $ Default Output Format [None]: <YOUR_DESIRED_OUTPUT_FORMAT>
 #### Terraform Configuration 
 
 * The terraform scripts located in the /terraform directory contains terraform scripts that Imports the required Providers (/terraform/providers.tf).
-* A script for creation of VPC and Subnets for the EKS cluster and nodes in /terrraform/vpc.tf and the security Groups in /terrraform/sg.tf
-* Terraform script to provide neccesary privileges for the creation of the infrastructure located in /terraform/data.tf. 
+* A script for creation of VPC, Subnets, route table and Internet gateways for the EKS cluster and nodes in /terrraform/vpc.tf and the security Groups in /terrraform/sg.tf
+* Terraform script to define data sources provide neccesary privileges for the creation of the infrastructure located in /terraform/data.tf. 
+* The creation of EKS cluster and Node group is executed using the /terraform/eks-cluster.tf file 
+* And all neccesary variables used in the terraform scripts are in the terraform/variable.tf file and that concludes provisioning of infrastructure using terraform 
 * Initialize Terraform 
 ``` bash 
 terraform init
@@ -40,4 +42,6 @@ terraform init
 ``` bash 
 terraform apply
 ```
+* "terraform apply" creates the infrastructure and next is provisioning apps the eks cluster that has been created using terraform 
+* 
 * 
