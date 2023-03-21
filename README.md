@@ -120,6 +120,5 @@ aws eks --region <aws-region> update-kubeconfig --name <eks-cluster-name>
 * Argocd is configured to fetch these manifests and use helm to provision all the resources defined in these manifests.
 * In ArgoCD, Syncronize with git repository by clicking on "Sync" and the deployment of the app is effected so that it matches the configuration and the state defined in the manifests in the git repository.
 
- 
- 
+## Using the Infrastructure 
  
