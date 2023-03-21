@@ -1,0 +1,1 @@
+# Deployment of a personal nginx web-app and the sock-shop app with neccesary deppendeencies using kubenrnetes as microservice orchestration tool, and tarraform as IAC tool for the creation of kubernetes (Amazon EKS) Infrastructure.
