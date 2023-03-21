@@ -38,10 +38,33 @@ $ Default Output Format [None]: <YOUR_DESIRED_OUTPUT_FORMAT>
 ``` bash 
 terraform init
 ```
-* Apply terraform script located in /terraform
+* Cd into /terraform and run terraform apply
 ``` bash 
 terraform apply
 ```
-* "terraform apply" creates the infrastructure and next is provisioning apps the eks cluster that has been created using terraform 
-* 
-* 
+* "terraform apply" creates the infrastructure 
+
+### Argocd Application Deployment 
+#### Argocd will be provisioned into the cluster that was created 
+
+* The EKS cluster needs to added to the kubeconfig: open cloudshell on AWS console and run the following command 
+```bash 
+aws eks --region <aws-region> update-kubeconfig --name <eks-cluster-name>
+```
+* Kubectl comamands can now be used to interact with the cluster
+* Create a Namespace for the Argocd application 
+``` bash 
+ kubectl create namespace argocd
+ ```
+ * Install Helm with the following commands: 
+ ```bash 
+ curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 > get_helm.sh
+ chmod 700
+ ./get_helm.sh
+ ```
+ ** run the following if Openssl errors are returned when trying to install Helm and try Installation again
+ ```bash 
+ sudo yum install openssl
+ export VERIFY_CHECKSUM=falset./get_helm.sh
+ ```
+ 
