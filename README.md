@@ -1,4 +1,4 @@
-# Deployment of a nginx web-app and the sock-shop app on kubernetes on AWS using Terraform. 
+# Deploying nginx web-app and sock-shop app on kubernetes on AWS EKS using Terraform. 
 ## Prerequisites
 * AWS account IAM user with necessary permissions for resource provisioning. 
 * AWS CLI 
